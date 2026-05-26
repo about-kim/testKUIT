@@ -4,10 +4,6 @@ on:
   pull_request:
     branches: [main, develop]
 
-permissions:
-  content: read
-  pull-requests: write
-
 jobs:
   ktlint:
     name: Check Code Stye
