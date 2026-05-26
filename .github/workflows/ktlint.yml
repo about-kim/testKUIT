@@ -1,0 +1,31 @@
+name: ktlint Check
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  content: read
+  pull-requests: write
+
+jobs:
+  ktlint:
+    name: Check Code Stye
+    runs_on: ubuntu-latest
+
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up jDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: "temurin"
+        java-version: "17"
+    - name: Download ktlint
+      run: |
+        curl -sSld https://github.com/pinterest/ktlint/releases/download/1.5.0/ktlint
+        chmod +x ktlint
+
+    - name: Run ktlint
+      run: ./ktlint --reporter=plain
