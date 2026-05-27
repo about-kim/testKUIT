@@ -39,8 +39,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-//실습5
-//PR test2
+//PR test3
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
